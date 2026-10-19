@@ -151,7 +151,7 @@ h2 {
   background-color: #eaddcf; /* Couleur de fond temporaire avant de mettre une photo */
   padding: 0 5%;
   /* Les nouvelles lignes pour l'image : */
-  background-image: url('hero-bg.jpg');
+  background-image: url('./Images/hero-bg.jpg');
   background-size: cover; /* L'image va s'étirer proprement pour couvrir tout l'espace */
   background-position: center 40% ; /* Centre l'image pour ne pas couper les détails importants */
   position: relative;
