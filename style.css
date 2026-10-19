@@ -1,0 +1,266 @@
+/* =========================================
+   1. VARIABLES ET RÉINITIALISATION
+   ========================================= */
+:root {
+  --doré: #C5A880;        /* Couleur chic pour les boutons et accents */
+  --fond: #FAF9F6;        /* Un blanc légèrement crème, plus doux pour les yeux */
+  --texte: #333333;       /* Gris très foncé, plus élégant que le noir pur */
+  --blanc: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--texte);
+  background-color: var(--fond);
+  line-height: 1.6;
+}
+
+/* On applique la police élégante aux titres et au logo */
+h1, h2, h3, .logo-text {
+  font-family: 'Playfair Display', serif;
+}
+
+/* =========================================
+   2. NAVIGATION ET LOGO
+   ========================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Sépare le logo à gauche et le menu à droite */
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: var(--blanc);
+  position: sticky; /* Garde le menu accroché en haut quand on descend */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Le design du petit logo UV */
+.logo-badge {
+  background-color: var(--doré);
+  color: var(--blanc);
+  font-size: 1.2rem;
+  padding: 10px 12px;
+  border-radius: 50%; /* Rend le fond parfaitement rond */
+  letter-spacing: 1px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+nav ul {
+  display: flex;
+  list-style: none; /* Enlève les puces de la liste */
+  gap: 2rem; /* Espace entre les liens du menu */
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none; /* Enlève le soulignement des liens */
+  color: var(--texte);
+  font-weight: 600;
+  transition: color 0.3s ease; /* Rend le changement de couleur fluide */
+}
+
+nav a:hover {
+  color: var(--doré); /* Devient doré quand on passe la souris */
+}
+
+/* =========================================
+   3. BOUTONS
+   ========================================= */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary, .btn-nav {
+  background-color: var(--doré);
+  color: var(--blanc);
+}
+
+.btn-primary:hover, .btn-nav:hover {
+  background-color: #b0926a; /* Un doré légèrement plus foncé au survol */
+}
+
+.btn-secondary {
+  background-color: var(--blanc);
+  color: var(--texte);
+  border: 2px solid var(--blanc);
+}
+
+.btn-secondary:hover {
+  background-color: transparent;
+  color: var(--blanc);
+  border: 2px solid var(--blanc);
+}
+
+/* =========================================
+   4. SECTIONS GLOBALES
+   ========================================= */
+.section {
+  padding: 80px 5%;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--doré);
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.bg-alt {
+  background-color: var(--blanc);
+}
+
+/* =========================================
+   5. HERO SECTION (L'accueil)
+   ========================================= */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #eaddcf; /* Couleur de fond temporaire avant de mettre une photo */
+  padding: 0 5%;
+  /* Les nouvelles lignes pour l'image : */
+  background-image: url('images/hero-bg.jpg');
+  background-size: cover; /* L'image va s'étirer proprement pour couvrir tout l'espace */
+  background-position: center 40% ; /* Centre l'image pour ne pas couper les détails importants */
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Un filtre noir transparent à 50% */
+  z-index: 1; /* Place le filtre sous le texte */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Place le texte au-dessus du filtre */
+  color: var(--blanc); /* Force le texte en blanc */
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* =========================================
+   6. GRILLES (Prestations)
+   ========================================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* S'adapte tout seul à la taille de l'écran */
+  gap: 30px;
+}
+
+.card {
+  background-color: var(--fond);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Fait "sauter" la carte légèrement vers le haut au survol */
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+/* =========================================
+   7. FORMULAIRE DE CONTACT ET FOOTER
+   ========================================= */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto; /* Centre le formulaire */
+  background: var(--blanc);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--doré); /* Le bord devient doré quand on clique dedans */
+}
+
+.btn-block {
+  width: 100%;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: var(--texte);
+  color: var(--blanc);
+}
